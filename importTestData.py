@@ -2,8 +2,15 @@ import numpy as np
 import cv2
 from tensorflow.keras.utils import to_categorical
 
-imagest = []
+angry    = imlist(". . .\Emotion Datasets\test\angry")
+disgust  = imlist(". . .\Emotion Datasets\test\disgust")
+fear     = imlist(". . .\Emotion Datasets\test\fear")
+happy    = imlist(". . .\Emotion Datasets\test\happy")
+neutral  = imlist(". . .\Emotion Datasets\test\neutral")
+sad      = imlist(". . .\Emotion Datasets\test\sad")
+surprise = imlist(". . .\Emotion Datasets\test\surprise")
 
+imagest = []
 for img in angryt:
     x = cv2.imread(img)
     x = cv2.cvtColor(x, cv2.COLOR_BGR2GRAY)
@@ -26,6 +33,8 @@ for img in neutralt:
     imagest.append(x)
 for img in sadt:
     x = cv2.imread(img)
+
+x_test = x_test.reshape(len(x_test), 48, 48, 1)
     x = cv2.cvtColor(x, cv2.COLOR_BGR2GRAY)
     imagest.append(x)
 for img in surpriset:
