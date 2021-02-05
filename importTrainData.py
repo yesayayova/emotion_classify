@@ -1,4 +1,5 @@
 import os
+from tensorflow.keras.utils import to_categorical
 
 #importing training data from local
 def imlist(path):
@@ -43,7 +44,7 @@ for img in surprise:
     x = cv2.cvtColor(x, cv2.COLOR_BGR2GRAY)
     images.append(x)
 x_train = np.array(images)
-x_train.shape
+x_train = x_train.reshape(len(x_train), 48, 48, 1)
 
 #build label data train
 labels = []
@@ -63,3 +64,5 @@ for i in range(len(surprise)):
     labels.append(6)
     x = cv2.cvtColor(x, cv2.COLOR_BGR2GRAY)
     images.append(x)
+y_train = to_categorical(labels)
+y_train.shape
